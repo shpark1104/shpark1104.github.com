@@ -6,6 +6,32 @@
   </head>
   <body>
     <h1> About world's secret </h1>
-    <input type="number" id="num" name="n" required size=5> 
-    <script> </script>
+    <input type="text" id="num" name="n" required size=5>
+    <button type="button" onclick="f();"> 소인수분해 </button> 
+    <div id="result"> </div>
+    <script>
+		function f(){
+			var n=document.getElementById("num").value;
+			var flag=0,pf=[],ex=[];
+			for(var i=2;i*i<=n;i++){
+				if(n%i==0){
+					pf.push(i);
+					var cnt=0;
+					while(n%i==0){
+						cnt+=1;
+						n/=i;
+					}
+					ex.push(cnt)
+				}
+			}
+			if(n!=1) pf.push(n),ex.push(1);
+			var ret=document.getElementById("result");
+			ret.innerHTML="";
+			for(var i=0;i<pf.length;i++){
+				if(ex[i]!=1) ret.innerHTML+=String(pf[i])+"<sup>"+String(ex[i])+"</sup>";
+				else ret.innerHTML+=String(pf[i])
+				if(i!=pf.length-1) ret.innerHTML+="×";
+			}
+		}
+    </script>
 </html>
