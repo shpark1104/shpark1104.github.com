@@ -26,7 +26,7 @@
 			}
 			if(n!=1) pf.push(n),ex.push(1);
 			var ret=document.getElementById("result");
-			ret.innerHTML="";
+			ret.innerHTML=String(n);
 			for(var i=0;i<pf.length;i++){
 				if(ex[i]!=1) ret.innerHTML+=String(pf[i])+"<sup>"+String(ex[i])+"</sup>";
 				else ret.innerHTML+=String(pf[i])
